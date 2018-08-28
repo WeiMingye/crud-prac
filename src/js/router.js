@@ -38,7 +38,16 @@ router.get('/students/add', function (req, res) {
 
 // 提交添加信息
  router.post('/students/add', function (req, res) {
-  
+  // 保存到文件中
+  students.push(req.body)
+  file.writeFile('../../students.json', JSON.stringify(students), function (err) {
+    if (err) {
+      console.log('Can not write the students.json')
+    } else {
+      console.log('the student is added')
+      res.redirect('/students')
+    }
+  })
  })
 
 //  编辑页面

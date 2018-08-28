@@ -9,3 +9,12 @@ exports.readFile = function (file, callback) {
     }
   })
 }
+
+exports.writeFile = function (file, data, callback) {
+  fs.writeFile(file, data, function (err) {
+    if (err) {
+      return callback(err)
+    }
+    callback(null)
+  })
+}
