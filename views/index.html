@@ -150,8 +150,8 @@
                 <td>{{ $value.gender }}</td>
                 <td>{{ $value.hobby }}</td>
                 <td>
-                  <a class="btn btn-success" href="/students/edit">编辑</a>
-                  <a class="btn btn-danger" href="/students/delete">删除</a>
+                  <a class="btn btn-success" href="/students/edit?id={{ $value.id }}">编辑</a>
+                  <a class="btn btn-danger" href="/students/delete?id={{ $value.id }}">删除</a>
                 </td>
               </tr>
               {{ /each }}

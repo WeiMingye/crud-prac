@@ -40,7 +40,7 @@ router.get('/students/add', function (req, res) {
  router.post('/students/add', function (req, res) {
   // 保存到文件中
   students.push(req.body)
-  file.writeFile('../../students.json', JSON.stringify(students), function (err) {
+  file.writeFile('./students.json', JSON.stringify(students), function (err) {
     if (err) {
       console.log('Can not write the students.json')
     } else {
@@ -52,6 +52,7 @@ router.get('/students/add', function (req, res) {
 
 //  编辑页面
 router.get('/students/edit', function (req, res) {
+  console.log(req.query.id)
   res.render('edit.html')
 })
 
@@ -62,7 +63,7 @@ router.post('/students/edit', function (req, res) {
 
 // 删除学生
 router.get('/students/delete', function (req, res) {
-  
+  red.end(req.query.id)
 })
 
 module.exports = router
