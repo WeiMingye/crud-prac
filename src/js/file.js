@@ -18,3 +18,9 @@ exports.writeFile = function (file, data, callback) {
     callback(null)
   })
 }
+
+exports.getItemById = function (array, id) {
+  return array.find(function (item) {
+    return item.id === parseInt(id)
+  })
+}

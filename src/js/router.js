@@ -38,6 +38,9 @@ router.get('/students/add', function (req, res) {
 
 // 提交添加信息
  router.post('/students/add', function (req, res) {
+  // 转换类型
+  req.body.id = parseInt(req.body.id)
+  req.body.gender = parseInt(req.body.gender)
   // 保存到文件中
   students.push(req.body)
   file.writeFile('./students.json', JSON.stringify(students), function (err) {
@@ -52,8 +55,8 @@ router.get('/students/add', function (req, res) {
 
 //  编辑页面
 router.get('/students/edit', function (req, res) {
-  console.log(req.query.id)
-  res.render('edit.html')
+  var editItem = file.getItemById(students, req.query.id)
+  res.render('edit.html', { student: editItem })
 })
 
 // 提交编辑信息

@@ -15,11 +15,11 @@
     <form action="/students/edit" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ student.name }}">
       </div>
       <div class="form-group">
         <label for="class">Class</label>
-        <select name="class" id="class" class="form-control">
+        <select name="class" id="class" class="form-control" value="{{ student.class }}">
           <option value="14级光一">14级光一</option>
           <option value="14级光二">14级光一</option>
           <option value="14级电一">14级电一</option>
@@ -30,22 +30,22 @@
       </div>
       <div class="form-group">
         <label for="id">ID</label>
-        <input type="number" name="id" id="id" class="form-control">
+        <input type="number" name="id" id="id" class="form-control" value="{{ student.id }}">
       </div>
       <div class="form-group">
         <label>Gender</label>
         <div>
           <label class="radio-inline">
-            <input type="radio" name="gender" id="gender-male" value="1"> 男
+            <input type="radio" name="gender" id="gender-male" value="1"{{ student.gender === 1 ? " checked" : "" }}> 男
           </label>
           <label class="radio-inline">
-            <input type="radio" name="gender" id="gender-female" value="0"> 女
+            <input type="radio" name="gender" id="gender-female" value="0"{{ student.gender === 0 ? " checked" : "" }}> 女
           </label>
         </div>
       </div>
       <div class="form-group">
         <label id="hobby">Hobby</label>
-        <input type="text" name="hobby" id="hobby" class="form-control" placeholder="Hobby">
+        <input type="text" name="hobby" id="hobby" class="form-control" placeholder="Hobby" value="{{ student.hobby }}">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
